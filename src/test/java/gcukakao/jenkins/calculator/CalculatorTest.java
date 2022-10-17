@@ -1,4 +1,4 @@
-package com.leszko.calculator; 
+package gcukakao.jenkins.calculator; 
 import org.junit.Test;
 
 import gcukakao.jenkins.calculator.Calculator;
