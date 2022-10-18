@@ -1,17 +1,15 @@
 pipeline { 
-     agent {
-     	docker {
-     		image 'openjdk:11-jdk-alpine'
-     } 
+     agent any
+     	
      stages { 
           stage("Compile") { 
                steps { 
-                    sh "./gradlew compileJava" 
+                   ./gradlew compileJava
                } 
           } 
           stage("Unit test") { 
                steps { 
-                    sh "./gradlew test" 
+                    ./gradlew test
                } 
           } 
      } 
