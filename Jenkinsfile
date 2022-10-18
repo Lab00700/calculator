@@ -1,20 +1,15 @@
 pipeline {
   agent any
   stages {
+    stage('Compile') {
+      steps {
+        sh ' gradlew(\'clean\', \'classes\')'
+      }
+    }
+
     stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            sh './gradlew check'
-          }
-        }
-
-        stage('Compile') {
-          steps {
-            sh ' gradlew(\'clean\', \'classes\')'
-          }
-        }
-
+      steps {
+        sh './gradlew check'
       }
     }
 
