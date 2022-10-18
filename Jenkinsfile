@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('Test') {
-      steps {
-        sh './gradlew check'
+      parallel {
+        stage('Test') {
+          steps {
+            sh './gradlew check'
+          }
+        }
+
+        stage('Compile') {
+          steps {
+            sh ' gradlew(\'clean\', \'classes\')'
+          }
+        }
+
       }
     }
 
