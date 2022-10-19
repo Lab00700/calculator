@@ -8,11 +8,5 @@ pipeline {
       }
     }
 
-    stage('Test') {
-      steps {
-        sh './gradlew clean '
-      }
-    }
-
   }
 }
