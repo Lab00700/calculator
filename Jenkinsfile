@@ -4,7 +4,7 @@ pipeline {
     stage('Compile') {
       agent any
       steps {
-        sh ' ./ gradlew clean '
+        sh ' ./gradlew clean '
       }
     }
 
