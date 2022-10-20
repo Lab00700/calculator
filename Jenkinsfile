@@ -22,7 +22,7 @@ stage('Build') {
     stage('Run') {
           agent any
           steps {
-            sh ' ./gradlew run '
+            sh 'java -jar gradle/wrapper/*.jar'
           }
         }
   }
