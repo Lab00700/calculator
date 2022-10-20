@@ -20,10 +20,4 @@ stage('Build') {
       }
     }
   }
-  post {
-          always {
-              archiveAritifacts artifacts: 'build/libs/**/*.jar',fingerprint:true
-              junit 'build/reports/**/*.xml'
-          }
-      }
 }
