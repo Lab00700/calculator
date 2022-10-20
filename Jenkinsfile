@@ -19,5 +19,12 @@ stage('Build') {
         sh ' ./gradlew build '
       }
     }
+    stage('Run') {
+          agent any
+          steps {
+            sh ' ./gradlew run '
+          }
+        }
   }
+
 }
