@@ -1,10 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Compile') {
       agent any
       steps {
-        sh ' ./gradlew build '
+        sh ' ./gradlew compileJava'
       }
     }
 
@@ -13,7 +13,12 @@ pipeline {
         sh './gradlew check'
       }
     }
-
+stage('Build') {
+      agent any
+      steps {
+        sh ' ./gradlew build '
+      }
+    }
   }
   post {
           always {
