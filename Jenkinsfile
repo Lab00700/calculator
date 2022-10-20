@@ -19,6 +19,7 @@ stage('Build') {
         sh ' ./gradlew build '
       }
     }
+    }
     post {
         always{
             archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint:true
