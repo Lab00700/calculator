@@ -1,18 +1,23 @@
 pipeline {
   agent any
   stages {
-    stage('Compile') {
+    stage('Build') {
       agent any
       steps {
-        sh ' ./gradlew clean '
+        sh ' ./gradlew build '
       }
     }
 
     stage('Test') {
       steps {
-        sh './gradlew test'
+        sh './gradlew check'
       }
     }
-
+    post {
+        always {
+            archiveAritifacts artifacts: 'build/libs/**/*.jar',fingerprint:true
+            junit 'build/reports/**/*.xml'
+        }
+    }
   }
 }
