@@ -13,11 +13,12 @@ pipeline {
         sh './gradlew check'
       }
     }
-    post {
-        always {
-            archiveAritifacts artifacts: 'build/libs/**/*.jar',fingerprint:true
-            junit 'build/reports/**/*.xml'
-        }
-    }
+
   }
+  post {
+          always {
+              archiveAritifacts artifacts: 'build/libs/**/*.jar',fingerprint:true
+              junit 'build/reports/**/*.xml'
+          }
+      }
 }
