@@ -19,12 +19,13 @@ stage('Build') {
         sh ' ./gradlew build '
       }
     }
-    stage('Run') {
-          agent any
-          steps {
-            sh 'java -jar gradle/wrapper/*.jar'
-          }
+    post {
+        always{
+            archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint:true
+            junit 'build/reports/**/*.xml'
+
         }
-  }
+
+    }
 
 }
