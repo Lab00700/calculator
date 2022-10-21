@@ -17,6 +17,7 @@ class CalculatorController {
      @RequestMapping("/sub")
      String sub(@RequestParam("a") Integer a,
                 @RequestParam("b") Integer b) {
+
           return String.valueOf(calculator.sub(a, b));
      }
      @RequestMapping("/mul")
